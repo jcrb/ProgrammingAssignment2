@@ -1,6 +1,14 @@
 ## Put comments here that give an overall description of what your
 ## functions do
 
+
+# We want to be able to store an invertible square matrix and its inverse, so that the inverse matrix 
+# can be reused without having to be recomputed. 
+# We create two additional items: the first (makeCacheMatrix) stores and the matrix and its inverse. 
+# The second (solveMatrix) computes the inverse matrix and stores the result in makeCacheMatrix object 
+# at the first call.
+# When subsequent calls, the inverse matrix is rendered directly without being recalculated.
+
 ## Write a short comment describing this function
 #'@author JCB
 #'@title makeCacheMatrix
@@ -53,7 +61,7 @@ makeCacheMatrix <- function(x = matrix()) {
 cacheSolve <- function(x, ...) {
         im <- x$getinv() # retrives the inverse matrix
         if(!is.null(im)){ # if exists the inverse matrix is returned
-                message("Retrieves cached data")
+                message("Retrieves cached inverse matrix")
                 return(im)
         }
         data <- x$get() # else the matrix is retrived
